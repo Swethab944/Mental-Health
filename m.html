@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment</title>
+    <style>
+        body {
+            font-family: 'Kristen ITC', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+        }
+        p {
+            font-family: 'Kristen ITC', Times, serif;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        canvas {
+            border: 1px solid #000;
+        }
+        @media only screen and (max-width: 600px) {
+        img {
+             max-width: 100%;
+             height: auto;
+            }
+        }
+        #result {
+            font-family: 'Kristen ITC', Times, serif;
+            text-align: center;
+            margin-top: 20px;
+            display: inline; /* Display result in a single line */
+        }
+
+        /* Hide canvas and result box by default */
+        canvas, #result {
+            display: none;
+        }
+
+        /* Display canvas and result box on last page */
+        #page4 canvas, #page4 #result {
+            display: block;
+        }
+    </style>
+</head>
+<body> 
+    <h1>Mental Health Assessment</h1>
+    <form id="assessmentForm">
+        <div class="page" id="page0">
+            <label> <p>Take a Mental Health Test</p>
+            <img src="start.jpg" width="500" height="500">
+            <p>Online screening is one of the quickest and easiest ways to determine whether you are experiencing symptoms of a mental health condition.</p>
+            <p>Mental health conditions, such as depression or anxiety, are real, common and treatable. And recovery is possible.</p>
+            </label>
+            <button type="button" onclick="nextPage()">Next</button>
+        </div>
+        <div class="page" id="page1">
+            <label>1. How would you describe your overall mood in the past week?<br>
+                <input type="radio" name="q1" value="3"> Good
+                <input type="radio" name="q1" value="0"> Bad
+            </label>
+            <label>2. Have you experienced changes in your sleep patterns recently?<br>
+                <input type="radio" name="q2" value="0"> Yes
+                <input type="radio" name="q2" value="3"> No
+            </label>
+	    <label>3. Are you finding it challenging to concentrate on tasks?<br>
+                <input type="radio" name="q3" value="0"> Yes
+                <input type="radio" name="q3" value="3"> No
+            </label>
+	    <label>4. Do you often feel overwhelmed or stressed?<br>
+                <input type="radio" name="q4" value="3"> Yes
+                <input type="radio" name="q4" value="0"> No
+            </label>
+	    <label>5. Have you noticed changes in your appetite or eating habits?<br>
+                <input type="radio" name="q5" value="0"> Yes
+                <input type="radio" name="q5" value="3"> No
+            </label>
+            <button type="button" onclick="previousPage()">Previous</button>
+            <button type="button" onclick="nextPage()">Next</button>
+        </div>
+        <div class="page" id="page2">
+            <label>6. Are you engaging in activities you once enjoyed?<br>
+                <input type="radio" name="q6" value="3"> Yes
+                <input type="radio" name="q6" value="0"> No
+            </label>
+
+            <label>7. How would you rate your level of irritability or anger lately?<br>
+                <input type="radio" name="q7" value="3"> Good
+                <input type="radio" name="q7" value="0"> Bad
+            </label>
+
+	    <label>8. Have you experienced changes in your energy levels?<br>
+                <input type="radio" name="q8" value="0"> Yes
+                <input type="radio" name="q8" value="3"> No
+            </label>
+
+	    <label>9. Are you isolating yourself from friends or family?<br>
+                <input type="radio" name="q9" value="0"> Yes
+                <input type="radio" name="q9" value="3"> No
+            </label>
+
+	    <label>10. Do you frequently experience feelings of sadness or hopelessness?<br>
+                <input type="radio" name="q10" value="0"> Yes
+                <input type="radio" name="q10" value="3"> No
+            </label>
+
+            <button type="button" onclick="previousPage()">Previous</button>
+            <button type="button" onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page3">
+            <label>11. Have you noticed changes in your motivation to accomplish daily tasks?<br>
+                <input type="radio" name="q11" value="3"> Yes
+                <input type="radio" name="q11" value="0"> No
+            </label>
+
+            <label>12. How would you describe your self-esteem currently?<br>
+                <input type="radio" name="q12" value="3"> Good
+                <input type="radio" name="q12" value="0"> Bad
+            </label>
+
+	    <label>13. Are you experiencing racing thoughts or a constant sense of worry?<br>
+                <input type="radio" name="q13" value="0"> Yes
+                <input type="radio" name="q13" value="3"> No
+            </label>
+
+	    <label>14. Have you had any thoughts of self-harm or suicide?<br>
+                <input type="radio" name="q14" value="0"> Yes
+                <input type="radio" name="q14" value="3"> No
+            </label>
+
+	    <label>15. Are you using substances (alcohol, drugs) as a coping mechanism?<br>
+                <input type="radio" name="q15" value="0"> Yes
+                <input type="radio" name="q15" value="3"> No
+            </label>
+
+            <button type="button" onclick="previousPage()">Previous</button>
+            <button type="button" onclick="nextPage()">Next</button>
+        </div>
+
+        <div class="page" id="page4">
+            <label>16. Have you experienced physical symptoms like headaches or body aches?<br>
+                <input type="radio" name="q16" value="0"> Yes
+                <input type="radio" name="q16" value="3"> No
+            </label>
+
+            <label>17. Do you have a support system you can rely on?<br>
+                <input type="radio" name="q17" value="3"> Yes
+                <input type="radio" name="q17" value="0"> No
+            </label>
+
+	    <label>18. How would you rate your stress level on a scale from 1 to 10?<br>
+                <input type="radio" name="q18" value="3"> 1-5
+                <input type="radio" name="q18" value="0"> 6-10
+            </label>
+
+	    <label>19. Are you able to express your emotions openly with others?<br>
+                <input type="radio" name="q19" value="3"> Yes
+                <input type="radio" name="q19" value="0"> No
+            </label>
+
+	    <label>20. Have there been significant life changes or events affecting your mental well-being?<br>
+                <input type="radio" name="q20" value="0"> Yes
+                <input type="radio" name="q20" value="3"> No
+            </label>
+
+            <button type="button" onclick="previousPage()">Previous</button>
+            <button type="button" onclick="calculatePoints()">Submit</button>
+        </div>
+
+    </form>
+    <canvas id="arcCanvas" width="200" height="100"></canvas>
+
+   <div id="result"></div>
+<script>
+    let currentPage = 0;
+
+    // Retrieve the canvas element and its 2D context
+    const canvas = document.createElement('canvas');
+    canvas.id = 'arcCanvas';
+    canvas.width = 200;
+    canvas.height = 100;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+// Function to draw an arc based on the total points
+function drawArc(totalPoints, context, width, height) {
+    // Clear the canvas
+    context.clearRect(0, 0, width, height);
+
+    // Calculate the angle based on the total points (assuming the range is 0-20)
+    const angle = (totalPoints / 60) * Math.PI;
+
+    // Draw the arc at the center of the canvas, starting from the top (Math.PI / 2)
+    context.beginPath();
+    context.arc(width / 2, height, 80, Math.PI, Math.PI + angle, false);
+    context.lineWidth = 10;
+    context.strokeStyle = '#3498db';
+    context.stroke();
+}
+    function showPage(pageNumber) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.style.display = 'none';
+        });
+
+        document.getElementById(`page${pageNumber}`).style.display = 'block';
+    }
+
+    function nextPage() {
+        if (currentPage < 4) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    }
+
+    function previousPage() {
+        if (currentPage >= 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    }
+
+function displayResultPage(totalPoints) {
+            let result = '';
+            let steps = '';
+
+            if (totalPoints < 20) {
+        result = 'Struggling greatly';
+        steps = "<strong>Steps to be taken:</strong><br>\
+                <strong>Go outside:</strong><br>\
+                Walk and talk with someone you trust, to remind yourself that others want to help and support you. Your brain will process things better in the presence of sunlight and/or daylight.<br>\
+                <strong>Stick to a routine:</strong><br>\
+                When life feels off track, forcing yourself to follow a schedule can help rein in feelings of hopelessness.<br>\
+                <strong>Reach out for help:</strong><br>\
+                Therapy can be life-changing. Many people report improvements in mood and motivation after just a few sessions.";
+            } else if (totalPoints >= 20 && totalPoints <= 40) {
+                result = 'Coping';
+                steps = "<strong>Steps to be taken:</strong><br>\
+                          <strong>Express gratitude</strong><br>\
+                          Just by being grateful for what we have, even the little things reduces feelings of stress<br>\
+                          <strong>Eat good food</strong><br>\
+                          When we eat nutritious food, we give out body what it needs so we have energy, to enjoy life.<br>\
+                          <strong>Track positive emotions:</strong><br>\
+                          Recognizing these moments, ones that you experience dozens of times a day, will shift you from a mindset of getting by to one of flourishing and reveling in life’s small pleasures.";
+            } else {
+                result = 'Flourishing';
+                steps = "<strong>Steps to be taken:</strong><br>\
+                         <strong>Prioritize self-care:</strong><br>\
+                         The amount of sleep and exercise you receive in a day’s time has a tremendous impact on how you feel about yourself and your overall mental health.You are fortunate to be emotionally healthy and resilient—don’t let others drag you down.<br>\
+                         <strong>Up your game:</strong><br>\
+                         Even in the best of times, working with a mental health professional may bring you clarity and a renewed appreciation for life.";
+            }
+            // Open a new window or tab with the result
+            const resultPageContent = `
+                <h1>Assessment Result</h1>
+                <canvas id="arcCanvasResult" width="200" height="100"></canvas>
+                <p><strong>Total Points:</strong> ${totalPoints}</p>
+                <p><strong>Mental Status:</strong> ${result}</p>
+                <p>${steps}</p>
+            `;
+            const resultWindow = window.open('', '_blank');
+            resultWindow.document.body.innerHTML = resultPageContent;
+            // Draw the arc in the result page
+            const resultCanvas = resultWindow.document.getElementById('arcCanvasResult');
+            const resultCtx = resultCanvas.getContext('2d');
+            drawArc(totalPoints, resultCtx, resultCanvas.width, resultCanvas.height);
+        } 
+function calculatePoints() {
+    let totalPoints = 0;
+
+    // Loop through each question on all pages and add points based on the user's response
+    for (let i = 1; i <= 20; i++) {
+        const answer = document.querySelector(`#page${Math.ceil(i / 5)} input[name="q${i}"]:checked`);
+
+        if (answer) {
+            totalPoints += parseInt(answer.value);
+        }
+    }
+
+    // Display the result directly in the result div
+    displayResultPage(totalPoints);
+}
+
+    // Show the first page initially
+    showPage(0);
+</script>
+
+</body>
+</html>
+
