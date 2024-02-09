@@ -1,6 +1,8 @@
 # Mental Health Assessment Web Application
 
-# Introduction
+   ![WhatsApp Image 2024-02-08 at 21 56 31_5a293d89](https://github.com/Swethab944/Mental-Health/assets/143270097/bd8aa644-4fd1-4427-b533-f483f52447aa)
+
+
 This is a web-based application designed to conduct a mental health assessment. It aims to help individuals quickly determine if they are experiencing symptoms of various mental health conditions such as depression or anxiety. The assessment is based on a series of questions related to mood, sleep patterns, concentration, stress levels, and other factors that contribute to mental well-being.
 
 # Features
